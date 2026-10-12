@@ -19,7 +19,7 @@ Provide a licensed JSONL dataset outside Git, for example `data/browsecomp/quest
 ## Local run
 
 ```bash
-scripts/run_browsecomp.sh \
+scripts/run_eval.sh \
   --model YOUR_MODEL --base-url "$HERMES_BASE_URL" \
   --dataset browsecomp --data-path data/browsecomp/questions.jsonl \
   --save-name local_run --workers-per-endpoint 1
@@ -32,7 +32,7 @@ The launcher uses `../Evaluation_backend/.venv/bin/hermes` and `.venv/bin/python
 Supply `E2B_DOMAIN`, `E2B_API_KEY`, `AGS_TEMPLATE`, `SEARCH_SERVER_ENDPOINT`, `SEARCH_SERVER_API_KEY`, and `AGS_FETCH_SERVER_SOURCE_DIR` in `config/credentials.env`. The Fetch Server source directory must contain `server.py` and `requirements.lock.txt` or `requirements.txt`. The AGS template and Fetch Server are external prerequisites.
 
 ```bash
-scripts/run_browsecomp_ags.sh \
+scripts/run_eval_ags.sh \
   --model YOUR_MODEL --base-url "$HERMES_BASE_URL" \
   --dataset browsecomp --data-path data/browsecomp/questions.jsonl \
   --save-name ags_run --workers-per-endpoint 1
@@ -41,7 +41,7 @@ scripts/run_browsecomp_ags.sh \
 ## Judge
 
 ```bash
-scripts/judge_browsecomp.sh \
+scripts/judge.sh \
   --save-name local_run --dataset browsecomp \
   --judge-base-url "$JUDGE_BASE_URL" --judge-model YOUR_JUDGE_MODEL
 ```

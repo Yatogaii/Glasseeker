@@ -9,7 +9,7 @@ HERMES_REPO="$(cd "${EVAL_ROOT}/../Evaluation_backend" && pwd)"
 usage() {
   cat <<'EOF'
 Usage:
-  scripts/judge_browsecomp.sh [options]
+  scripts/judge.sh [options]
 
 Prediction input (choose one form):
   --pred-root PATH              Prediction root containing conv/
@@ -61,7 +61,7 @@ All options also support their uppercase environment variable equivalents.
 
 Example:
   export JUDGE_API_KEY="..."
-  scripts/judge_browsecomp.sh \
+  scripts/judge.sh \
     --save-name Qwen3.5-9B_browsecomp_200_r3 \
     --dataset browsecomp_subset_200 \
     --expected-predictions 600 \
@@ -70,20 +70,20 @@ Example:
     --num-workers 10
 
 BrowseComp with the official OpenAI grading prompt:
-  scripts/judge_browsecomp.sh \
+  scripts/judge.sh \
     --save-name MODEL_browsecomp --dataset browsecomp_full \
     --prompt-version official \
     --judge-model gpt-5-mini --judge-base-url https://example.com/v1
 
 SEAL-0 (the published protocol uses gpt-4o-mini at temperature 0):
-  scripts/judge_browsecomp.sh \
+  scripts/judge.sh \
     --save-name MODEL_seal_0 --dataset seal_0 \
     --expected-predictions 111 --judge-template sealqa \
     --judge-model gpt-4o-mini --temperature 0 \
     --token-param max_tokens --judge-base-url https://api.openai.com/v1
 
 WideSearch (defaults to the official GPT-4.1 judge configuration):
-  scripts/judge_browsecomp.sh \
+  scripts/judge.sh \
     --save-name MODEL_widesearch --dataset widesearch \
     --expected-predictions 800 --judge-template widesearch \
     --judge-base-url https://api.openai.com/v1

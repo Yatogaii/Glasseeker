@@ -17,7 +17,7 @@ die() {
 usage() {
   cat <<'EOF'
 Usage:
-  scripts/run_browsecomp_ags.sh --model MODEL --base-url URL \
+  scripts/run_eval_ags.sh --model MODEL --base-url URL \
     --dataset DATASET --data-path PATH [options]
 
 Experiment-specific options:

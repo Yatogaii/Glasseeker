@@ -11,7 +11,7 @@ WORKSPACE="${EVAL_ROOT}"
 usage() {
   cat <<'EOF'
 Usage:
-  scripts/run_browsecomp.sh [options]
+  scripts/run_eval.sh [options]
 
 Required (or set the corresponding uppercase environment variable):
   --model NAME                  Model name sent to Hermes
@@ -96,10 +96,10 @@ Run controls:
 Environment variables with the same uppercase names remain supported. For example:
   MODEL=Qwen3.5-9B HERMES_BASE_URLS=http://127.0.0.1:8000/v1 \
     DATASET=browsecomp_subset_200 DATA_PATH=data/browsecomp_subset_200/questions_200.jsonl \
-    scripts/run_browsecomp.sh
+    scripts/run_eval.sh
 
 Example:
-  scripts/run_browsecomp.sh \
+  scripts/run_eval.sh \
     --model SenseNova-Flash-Lite \
     --base-urls http://127.0.0.1:8000/v1,http://127.0.0.1:8001/v1 \
     --workers-per-endpoint 10 \
@@ -108,14 +108,14 @@ Example:
     --expected-questions 200 --repeats 3
 
 SEAL-0:
-  scripts/run_browsecomp.sh \
+  scripts/run_eval.sh \
     --model MODEL --base-url http://127.0.0.1:8000/v1 \
     --save-name MODEL_seal_0 \
     --dataset seal_0 --data-path data/seal_0/questions.jsonl \
     --expected-questions 111
 
 WideSearch:
-  scripts/run_browsecomp.sh \
+  scripts/run_eval.sh \
     --model MODEL --base-url http://127.0.0.1:8000/v1 \
     --save-name MODEL_widesearch \
     --dataset widesearch --data-path data/widesearch/questions.jsonl \
